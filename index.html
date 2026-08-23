@@ -14,7 +14,7 @@
   <meta property="og:title" content="Armando Rosales | Interfondos" />
   <meta
     property="og:description"
-    content="Broker autorizado de FinKargo. Financiamiento para importadores."
+    content="Broker autorizado de FinKargo. Acompañamiento para empresas importadoras."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://armando.interfondos.mx" />
@@ -29,6 +29,9 @@
       --white: #ffffff;
       --border: #dce4ea;
       --background: #f4f7f9;
+      --warning-bg: #fff4cc;
+      --warning-border: #d9a400;
+      --warning-text: #6e5200;
       --shadow: 0 18px 55px rgba(16, 36, 62, 0.13);
     }
 
@@ -60,9 +63,13 @@
       color: inherit;
     }
 
+    button {
+      font: inherit;
+    }
+
     .card {
       width: 100%;
-      max-width: 460px;
+      max-width: 470px;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 24px;
@@ -119,7 +126,7 @@
 
     .role {
       font-size: 1rem;
-      color: rgba(255,255,255,0.88);
+      color: rgba(255,255,255,0.9);
       margin-bottom: 5px;
     }
 
@@ -150,7 +157,7 @@
     }
 
     .action {
-      min-height: 54px;
+      min-height: 58px;
       display: flex;
       align-items: center;
       gap: 14px;
@@ -159,6 +166,9 @@
       border: 1px solid var(--border);
       background: var(--white);
       transition: 0.18s ease;
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
     }
 
     .action:hover {
@@ -179,6 +189,12 @@
       border-color: #d2e2ed;
     }
 
+    .action.placeholder {
+      background: var(--warning-bg);
+      border: 2px dashed var(--warning-border);
+      color: var(--warning-text);
+    }
+
     .icon {
       width: 35px;
       height: 35px;
@@ -195,10 +211,15 @@
       background: rgba(255,255,255,0.12);
     }
 
+    .placeholder .icon {
+      background: rgba(217,164,0,0.13);
+    }
+
     .action-text {
       display: flex;
       flex-direction: column;
       min-width: 0;
+      flex: 1;
     }
 
     .action-text strong {
@@ -213,7 +234,40 @@
     }
 
     .primary .action-text span {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.72);
+    }
+
+    .placeholder .action-text span {
+      color: var(--warning-text);
+      font-weight: 700;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .copy-button {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0 13px;
+      background: #f8fafb;
+      color: var(--navy);
+      font-weight: 700;
+      cursor: pointer;
+      min-width: 72px;
+    }
+
+    .copy-button:hover {
+      background: var(--blue-light);
+    }
+
+    .copy-button.copied {
+      background: #e9f5ee;
+      border-color: #b7dbc5;
+      color: #23613b;
     }
 
     .divider {
@@ -299,7 +353,7 @@
       </div>
 
       <div class="company">
-        Financiamiento para importadores
+        Acompañamiento para empresas importadoras
       </div>
 
     </section>
@@ -309,19 +363,33 @@
 
       <div class="intro">
         <p>
-          Acompaño a empresas importadoras en México en el proceso de
-          conocer, evaluar y usar exitosamente soluciones de financiamiento disponibles
-          a través de FinKargo.
+          Acompaño a empresas importadoras en México en el proceso de conocer,
+          evaluar y utilizar exitosamente soluciones de financiamiento
+          disponibles a través de FinKargo.
         </p>
       </div>
 
 
       <div class="actions">
 
-        <!-- CAMBIA 521XXXXXXXXXX POR TU NÚMERO REAL -->
+        <!-- FORMULARIO DE CAPTURA -->
         <a
-          class="action primary"
-          href="https://wa.me/5531128487?text=Hola%20Armando%2C%20vi%20tu%20tarjeta%20digital%20de%20Interfondos%20y%20quisiera%20informaci%C3%B3n%20sobre%20financiamiento%20para%20importaciones."
+          class="action primary placeholder"
+          href="LINK_FORMULARIO_CAPTURA_PENDIENTE"
+        >
+          <div class="icon">✓</div>
+
+          <div class="action-text">
+            <strong>Solicitar información</strong>
+            <span>PLACEHOLDER: AGREGAR LINK DEL FORMULARIO</span>
+          </div>
+        </a>
+
+
+        <!-- WHATSAPP -->
+        <a
+          class="action"
+          href="https://wa.me/52NUMERO_WHATSAPP_PENDIENTE?text=Hola%20Armando%2C%20vi%20tu%20tarjeta%20digital%20de%20Interfondos%20y%20quisiera%20informaci%C3%B3n%20sobre%20soluciones%20de%20financiamiento%20para%20importaciones."
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -329,40 +397,119 @@
 
           <div class="action-text">
             <strong>WhatsApp</strong>
-            <span>Enviar mensaje</span>
+            <span>NUMERO_WHATSAPP_PENDIENTE</span>
           </div>
         </a>
 
 
-        <!-- CAMBIA +52XXXXXXXXXX POR TU NÚMERO REAL -->
-        <a
-          class="action"
-          href="tel:+52XXXXXXXXXX"
-        >
-          <div class="icon">☎</div>
+        <!-- TELÉFONO + COPIAR -->
+        <div class="contact-row">
 
-          <div class="action-text">
-            <strong>Llamar</strong>
-            <span>Contacto directo</span>
-          </div>
-        </a>
+          <a
+            class="action"
+            href="tel:+52NUMERO_TELEFONO_PENDIENTE"
+          >
+            <div class="icon">☎</div>
+
+            <div class="action-text">
+              <strong>Llamar</strong>
+              <span id="telefono-visible">
+                +52 NUMERO_TELEFONO_PENDIENTE
+              </span>
+            </div>
+          </a>
+
+          <button
+            class="copy-button"
+            type="button"
+            onclick="copiarTexto(
+              '+52NUMERO_TELEFONO_PENDIENTE',
+              this
+            )"
+          >
+            Copiar
+          </button>
+
+        </div>
 
 
-        <a
-          class="action"
-          href="mailto:armando@interfondos.mx?subject=Informaci%C3%B3n%20sobre%20financiamiento%20para%20importaciones"
-        >
-          <div class="icon">✉</div>
+        <!-- CORREO + COPIAR -->
+        <div class="contact-row">
 
-          <div class="action-text">
-            <strong>Correo electrónico</strong>
-            <span>armando@interfondos.mx</span>
-          </div>
-        </a>
+          <a
+            class="action"
+            href="mailto:armando@interfondos.mx?subject=Informaci%C3%B3n%20sobre%20financiamiento%20para%20importaciones"
+          >
+            <div class="icon">✉</div>
+
+            <div class="action-text">
+              <strong>Correo electrónico</strong>
+              <span>armando@interfondos.mx</span>
+            </div>
+          </a>
+
+          <button
+            class="copy-button"
+            type="button"
+            onclick="copiarTexto(
+              'armando@interfondos.mx',
+              this
+            )"
+          >
+            Copiar
+          </button>
+
+        </div>
 
 
+        <!-- GUARDAR CONTACTO -->
         <a
           class="action secondary"
+          href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Rosales;Armando;;;%0AFN:Armando%20Rosales%0AORG:Interfondos%0ATITLE:Broker%20autorizado%20de%20FinKargo%0AEMAIL;TYPE=INTERNET:armando@interfondos.mx%0ATEL;TYPE=CELL:+52NUMERO_TELEFONO_PENDIENTE%0AURL:https://armando.interfondos.mx%0ANOTE:Acompa%C3%B1amiento%20para%20empresas%20importadoras.%0AEND:VCARD"
+          download="Armando-Rosales-Interfondos.vcf"
+        >
+          <div class="icon">👤</div>
+
+          <div class="action-text">
+            <strong>Guardar contacto</strong>
+            <span>Agregar a contactos del teléfono</span>
+          </div>
+        </a>
+
+
+        <!-- AGENDAR REUNIÓN -->
+        <a
+          class="action placeholder"
+          href="LINK_AGENDAR_REUNION_PENDIENTE"
+        >
+          <div class="icon">📅</div>
+
+          <div class="action-text">
+            <strong>Agendar una reunión</strong>
+            <span>PLACEHOLDER: AGREGAR LINK DE CALENDARIO</span>
+          </div>
+        </a>
+
+
+        <!-- FINKARGO -->
+        <a
+          class="action"
+          href="https://www.finkargo.com/mx/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon">↗</div>
+
+          <div class="action-text">
+            <strong>Conocer FinKargo</strong>
+            <span>Información oficial sobre las soluciones disponibles</span>
+          </div>
+        </a>
+
+
+        <!-- INTERFONDOS -->
+        <a
+          class="action"
           href="https://interfondos.mx"
           target="_blank"
           rel="noopener noreferrer"
@@ -370,45 +517,8 @@
           <div class="icon">🌐</div>
 
           <div class="action-text">
-            <strong>Visitar Interfondos</strong>
+            <strong>Interfondos</strong>
             <span>interfondos.mx</span>
-          </div>
-        </a>
-
-
-        <!--
-          Más adelante cambiaremos # por un enlace real de calendario,
-          por ejemplo Calendly, Google Calendar Appointment Schedule,
-          Microsoft Bookings u otra herramienta.
-        -->
-        <a
-          class="action"
-          href="#"
-          onclick="alert('Próximamente podrás agendar una reunión desde aquí.'); return false;"
-        >
-          <div class="icon">📅</div>
-
-          <div class="action-text">
-            <strong>Agendar una reunión</strong>
-            <span>Seleccionar día y horario</span>
-          </div>
-        </a>
-
-
-        <!--
-          Este botón genera un contacto vCard directamente desde el navegador.
-          Cambia el teléfono antes de publicarlo.
-        -->
-        <a
-          class="action"
-          href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Rosales;Armando;;;%0AFN:Armando%20Rosales%0AORG:Interfondos%0ATITLE:Broker%20autorizado%20de%20FinKargo%0AEMAIL;TYPE=INTERNET:armando@interfondos.mx%0ATEL;TYPE=CELL:+52XXXXXXXXXX%0AURL:https://interfondos.mx%0AEND:VCARD"
-          download="Armando-Rosales-Interfondos.vcf"
-        >
-          <div class="icon">👤</div>
-
-          <div class="action-text">
-            <strong>Guardar contacto</strong>
-            <span>Agregar a contactos</span>
           </div>
         </a>
 
@@ -420,12 +530,14 @@
 
       <div class="about">
 
-        <h2>Sobre Interfondos</h2>
+        <h2>Sobre Armando</h2>
 
         <p>
-          Interfondos facilita el contacto y acompañamiento comercial
-          para empresas interesadas en soluciones de financiamiento
-          enfocadas en operaciones de importación.
+          Licenciado en Mercadotecnia por el Tecnológico de Monterrey
+          (1994) y Maestro en Consultoría de Empresas por Tech (2026).
+          Su trayectoria profesional se ha enfocado en acompañar a grandes
+          empresas en sus procesos comerciales, desarrollo de oportunidades
+          y relación con clientes.
         </p>
 
       </div>
@@ -461,14 +573,35 @@
 
       ·
 
-      <!-- Luego sustituimos # por el Aviso de Privacidad -->
-      <a href="#">
-        Privacidad
+      <a href="LINK_AVISO_PRIVACIDAD_PENDIENTE">
+        PRIVACIDAD - LINK PENDIENTE
       </a>
 
     </footer>
 
   </main>
+
+
+  <script>
+    async function copiarTexto(texto, boton) {
+      try {
+        await navigator.clipboard.writeText(texto);
+
+        const textoOriginal = boton.textContent;
+
+        boton.textContent = "Copiado";
+        boton.classList.add("copied");
+
+        setTimeout(() => {
+          boton.textContent = textoOriginal;
+          boton.classList.remove("copied");
+        }, 1800);
+
+      } catch (error) {
+        alert("No fue posible copiar automáticamente. Selecciona el dato y cópialo manualmente.");
+      }
+    }
+  </script>
 
 </body>
 </html>
