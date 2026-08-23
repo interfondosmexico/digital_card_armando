@@ -1,13 +1,474 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Armando Rosales | Interfondos</title>
+
+  <meta
+    name="description"
+    content="Tarjeta digital de Armando Rosales, broker autorizado de FinKargo a través de Interfondos."
+  />
+
+  <meta property="og:title" content="Armando Rosales | Interfondos" />
+  <meta
+    property="og:description"
+    content="Broker autorizado de FinKargo. Financiamiento para importadores."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://armando.interfondos.mx" />
+
+  <style>
+    :root {
+      --navy: #10243e;
+      --blue: #1e5a8a;
+      --blue-light: #eef5fa;
+      --text: #25313c;
+      --muted: #697783;
+      --white: #ffffff;
+      --border: #dce4ea;
+      --background: #f4f7f9;
+      --shadow: 0 18px 55px rgba(16, 36, 62, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(30, 90, 138, 0.12), transparent 35%),
+        linear-gradient(180deg, #f8fbfd 0%, #eef3f6 100%);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 34px 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .top {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(16, 36, 62, 0.99),
+          rgba(30, 90, 138, 0.94)
+        );
+      color: var(--white);
+      padding: 42px 28px 34px;
+      text-align: center;
+    }
+
+    .monogram {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
+      font-size: 1.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.1;
+      margin-bottom: 9px;
+    }
+
+    .role {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 5px;
+    }
+
+    .company {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .action {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: 0.18s ease;
+    }
+
+    .action:hover {
+      transform: translateY(-1px);
+      border-color: #b8c7d2;
+      box-shadow: 0 7px 20px rgba(16, 36, 62, 0.08);
+    }
+
+    .action.primary {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .action.secondary {
+      background: var(--blue-light);
+      color: var(--navy);
+      border-color: #d2e2ed;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      flex: 0 0 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      background: rgba(30, 90, 138, 0.09);
+      font-size: 1rem;
+    }
+
+    .primary .icon {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .action-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .action-text strong {
+      font-size: 0.95rem;
+      margin-bottom: 1px;
+    }
+
+    .action-text span {
+      font-size: 0.79rem;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .primary .action-text span {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0;
+    }
+
+    .about h2 {
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .legal {
+      margin-top: 23px;
+      padding: 16px;
+      background: #f8fafb;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 0 28px 26px;
+      text-align: center;
+      color: #87939d;
+      font-size: 0.72rem;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0;
+        background: var(--white);
+      }
+
+      .card {
+        max-width: none;
+        min-height: 100vh;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+      }
+
+      .top {
+        padding-top: 48px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Armando Rosales</h1>
-  <p>Broker autorizado de FinKargo</p>
-  <p>Tarjeta digital de Interfondos</p>
+
+  <main class="card">
+
+    <section class="top">
+
+      <div class="monogram">
+        AR
+      </div>
+
+      <div class="brand">
+        Interfondos
+      </div>
+
+      <h1>Armando Rosales</h1>
+
+      <div class="role">
+        Broker autorizado de FinKargo
+      </div>
+
+      <div class="company">
+        Financiamiento para importadores
+      </div>
+
+    </section>
+
+
+    <section class="content">
+
+      <div class="intro">
+        <p>
+          Acompaño a empresas importadoras en México en el proceso inicial
+          para conocer y evaluar soluciones de financiamiento disponibles
+          a través de FinKargo.
+        </p>
+      </div>
+
+
+      <div class="actions">
+
+        <!-- CAMBIA 521XXXXXXXXXX POR TU NÚMERO REAL -->
+        <a
+          class="action primary"
+          href="https://wa.me/521XXXXXXXXXX?text=Hola%20Armando%2C%20vi%20tu%20tarjeta%20digital%20de%20Interfondos%20y%20quisiera%20informaci%C3%B3n%20sobre%20financiamiento%20para%20importaciones."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon">💬</div>
+
+          <div class="action-text">
+            <strong>WhatsApp</strong>
+            <span>Enviar mensaje</span>
+          </div>
+        </a>
+
+
+        <!-- CAMBIA +52XXXXXXXXXX POR TU NÚMERO REAL -->
+        <a
+          class="action"
+          href="tel:+52XXXXXXXXXX"
+        >
+          <div class="icon">☎</div>
+
+          <div class="action-text">
+            <strong>Llamar</strong>
+            <span>Contacto directo</span>
+          </div>
+        </a>
+
+
+        <a
+          class="action"
+          href="mailto:armando@interfondos.mx?subject=Informaci%C3%B3n%20sobre%20financiamiento%20para%20importaciones"
+        >
+          <div class="icon">✉</div>
+
+          <div class="action-text">
+            <strong>Correo electrónico</strong>
+            <span>armando@interfondos.mx</span>
+          </div>
+        </a>
+
+
+        <a
+          class="action secondary"
+          href="https://interfondos.mx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="icon">🌐</div>
+
+          <div class="action-text">
+            <strong>Visitar Interfondos</strong>
+            <span>interfondos.mx</span>
+          </div>
+        </a>
+
+
+        <!--
+          Más adelante cambiaremos # por un enlace real de calendario,
+          por ejemplo Calendly, Google Calendar Appointment Schedule,
+          Microsoft Bookings u otra herramienta.
+        -->
+        <a
+          class="action"
+          href="#"
+          onclick="alert('Próximamente podrás agendar una reunión desde aquí.'); return false;"
+        >
+          <div class="icon">📅</div>
+
+          <div class="action-text">
+            <strong>Agendar una reunión</strong>
+            <span>Seleccionar día y horario</span>
+          </div>
+        </a>
+
+
+        <!--
+          Este botón genera un contacto vCard directamente desde el navegador.
+          Cambia el teléfono antes de publicarlo.
+        -->
+        <a
+          class="action"
+          href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AN:Rosales;Armando;;;%0AFN:Armando%20Rosales%0AORG:Interfondos%0ATITLE:Broker%20autorizado%20de%20FinKargo%0AEMAIL;TYPE=INTERNET:armando@interfondos.mx%0ATEL;TYPE=CELL:+52XXXXXXXXXX%0AURL:https://interfondos.mx%0AEND:VCARD"
+          download="Armando-Rosales-Interfondos.vcf"
+        >
+          <div class="icon">👤</div>
+
+          <div class="action-text">
+            <strong>Guardar contacto</strong>
+            <span>Agregar a contactos</span>
+          </div>
+        </a>
+
+      </div>
+
+
+      <div class="divider"></div>
+
+
+      <div class="about">
+
+        <h2>Sobre Interfondos</h2>
+
+        <p>
+          Interfondos facilita el contacto y acompañamiento comercial
+          para empresas interesadas en soluciones de financiamiento
+          enfocadas en operaciones de importación.
+        </p>
+
+      </div>
+
+
+      <div class="legal">
+
+        Interfondos actúa como intermediario comercial independiente.
+        Los productos financieros, procesos de evaluación, aprobación,
+        montos, tasas, plazos y demás condiciones son establecidos por
+        FinKargo y están sujetos a sus políticas vigentes.
+
+        <br><br>
+
+        La información presentada es únicamente informativa, puede variar
+        sin previo aviso y no constituye una oferta vinculante de
+        financiamiento.
+
+      </div>
+
+    </section>
+
+
+    <footer>
+
+      © 2026 Interfondos
+
+      ·
+
+      <a href="https://interfondos.mx">
+        Sitio web
+      </a>
+
+      ·
+
+      <!-- Luego sustituimos # por el Aviso de Privacidad -->
+      <a href="#">
+        Privacidad
+      </a>
+
+    </footer>
+
+  </main>
+
 </body>
 </html>
