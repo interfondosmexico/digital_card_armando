@@ -436,20 +436,20 @@
           </div>
         </a>
 
-
         <!-- AGENDAR REUNIÓN -->
         <a
-          class="action placeholder"
-          href="LINK_AGENDAR_REUNION_PENDIENTE"
+          class="action"
+          href="https://outlook.office.com/bookwithme/user/117c8d07879b432fa3216118bc25d184@railpros.com/meetingtype/ZwsOmaH-SEKv0uTds-e2Dw2?bookingcode=a4fd2c4d-ece8-41a9-bfc8-ed9e93a20c70&anonymous&ismsaljsauthenabled&ep=mLinkFromTile"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <div class="icon">📅</div>
+        <div class="icon">📅</div>
 
-          <div class="action-text">
-            <strong>Agendar una reunión</strong>
-            <span>PLACEHOLDER: AGREGAR LINK DE CALENDARIO</span>
-          </div>
+        <div class="action-text">
+        <strong>Agendar una reunión</strong>
+        <span>Seleccionar día y horario</span>
+        </div>
         </a>
-
 
         <!-- FINKARGO -->
         <a
@@ -484,7 +484,18 @@
 
       </div>
 
+<button
+  class="action"
+  type="button"
+  onclick="compartirTarjeta(this)"
+>
+  <div class="icon">↗</div>
 
+  <div class="action-text">
+    <strong>Compartir esta tarjeta</strong>
+    <span>Enviar enlace a otra persona</span>
+  </div>
+</button>
       <div class="legal">
 
         Interfondos actúa como intermediario comercial independiente.
@@ -523,29 +534,60 @@
 
   </main>
 
-
   <script>
-    async function copiarTexto(texto, boton) {
-      try {
-        await navigator.clipboard.writeText(texto);
+  async function copiarTexto(texto, boton) {
+    try {
+      await navigator.clipboard.writeText(texto);
 
-        const textoOriginal = boton.textContent;
+      const textoOriginal = boton.textContent;
 
-        boton.textContent = "Copiado";
-        boton.classList.add("copied");
+      boton.textContent = "Copiado";
+      boton.classList.add("copied");
+
+      setTimeout(() => {
+        boton.textContent = textoOriginal;
+        boton.classList.remove("copied");
+      }, 1800);
+
+    } catch (error) {
+      alert(
+        "No fue posible copiar automáticamente. Selecciona el dato y cópialo manualmente."
+      );
+    }
+  }
+
+
+  async function compartirTarjeta(boton) {
+    const url = "https://armando.interfondos.mx";
+    const titulo = "Armando Rosales | Interfondos";
+    const texto = "Tarjeta digital de Armando Rosales";
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: titulo,
+          text: texto,
+          url: url
+        });
+      } else {
+        await navigator.clipboard.writeText(url);
+
+        const textoOriginal =
+          boton.querySelector(".action-text span").textContent;
+
+        boton.querySelector(".action-text span").textContent =
+          "Enlace copiado";
 
         setTimeout(() => {
-          boton.textContent = textoOriginal;
-          boton.classList.remove("copied");
+          boton.querySelector(".action-text span").textContent =
+            textoOriginal;
         }, 1800);
-
-      } catch (error) {
-        alert(
-          "No fue posible copiar automáticamente. Selecciona el dato y cópialo manualmente."
-        );
       }
+    } catch (error) {
+      /* Si el usuario cancela el menú de compartir, no hacemos nada */
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
