@@ -137,6 +137,7 @@
 
     .content {
       padding: 28px;
+      background: #f3f7fa;
     }
 
     .intro {
@@ -163,7 +164,7 @@
       gap: 14px;
       padding: 12px 16px;
       border-radius: 12px;
-      border: 1px solid var(--border);
+      border: 1.5px solid #ccd8e2;
       background: var(--white);
       transition: 0.18s ease;
       width: 100%;
@@ -482,20 +483,24 @@
           </div>
         </a>
 
+
+        <!-- COMPARTIR TARJETA -->
+        <button
+          class="action"
+          type="button"
+          onclick="compartirTarjeta(this)"
+        >
+          <div class="icon">↗</div>
+
+          <div class="action-text">
+            <strong>Compartir esta tarjeta</strong>
+            <span>Enviar enlace a otra persona</span>
+          </div>
+        </button>
+
       </div>
 
-<button
-  class="action"
-  type="button"
-  onclick="compartirTarjeta(this)"
->
-  <div class="icon">↗</div>
 
-  <div class="action-text">
-    <strong>Compartir esta tarjeta</strong>
-    <span>Enviar enlace a otra persona</span>
-  </div>
-</button>
       <div class="legal">
 
         Interfondos actúa como intermediario comercial independiente.
